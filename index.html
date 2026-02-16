@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشكاة رمضان - ثانوية مشكاة المنار</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #0a2a35 0%, #1a4a55 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* الهيدر */
+        .header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid #ffd700;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo-placeholder {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #0a2a35;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .logo-placeholder:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px #ffd700;
+        }
+
+        .logo-placeholder i {
+            font-size: 2.5rem;
+        }
+
+        .logo-placeholder span {
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
+        }
+
+        .school-title h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .school-title p {
+            color: #ffd700;
+            font-size: 1.2rem;
+        }
+
+        .ramadan-badge {
+            background: #ffd700;
+            color: #0a2a35;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 0 30px #ffd700;
+        }
+
+        /* عداد الأيام */
+        .days-counter {
+            background: linear-gradient(135deg, #1f4f5f, #0f3f4f);
+            border-radius: 50px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 3px solid #ffd700;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+        }
+
+        .counter-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #ffd700;
+        }
+
+        .big-days {
+            font-size: 15rem;
+            font-weight: 900;
+            color: #ffd700;
+            line-height: 1;
+            text-shadow: 0 0 70px #ffd700;
+            font-family: 'Amiri', serif;
+        }
+
+        .days-label {
+            font-size: 3rem;
+            margin-top: 1rem;
+            color: #fff;
+        }
+
+        /* قسم الأذكار */
+        .azkar-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 40px;
+            padding: 2.5rem;
+            border: 2px solid #ffd700;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header i {
+            font-size: 2.5rem;
+            color: #ffd700;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: #ffd700;
+        }
+
+        .zekr-card {
+            background: linear-gradient(135deg, #1e4a5a, #0e3a4a);
+            padding: 2.5rem;
+            border-radius: 30px;
+            border: 2px solid #ffd700;
+        }
+
+        .zekr-text {
+            font-size: 2.2rem;
+            font-family: 'Amiri', serif;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            text-align: center;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .counter-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .counter-btn {
+            width: 80px;
+            height: 80px;
+            background: #ffd700;
+            border: none;
+            border-radius: 50%;
+            color: #0a2a35;
+            font-size: 3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 30px #ffd700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .counter-btn:hover {
+            transform: scale(1.1);
+            background: #fff;
+        }
+
+        .zekr-counter {
+            font-size: 5rem;
+            font-weight: 900;
+            color: #ffd700;
+            min-width: 120px;
+            text-align: center;
+            font-family: 'Amiri', serif;
+        }
+
+        .next-zekr-btn {
+            background: transparent;
+            border: 2px solid #ffd700;
+            color: white;
+            padding: 1.2rem 2rem;
+            border-radius: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .next-zekr-btn:hover {
+            background: #ffd700;
+            color: #0a2a35;
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .big-days {
+                font-size: 8rem;
+            }
+            .zekr-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- الهيدر مع شعار المدرسة -->
+        <div class="header">
+            <div class="logo-area">
+                    <i class="fas fa-mosque"></i>
+                    <span></span>
+                </div>
+                <div class="school-title">
+                    <h1>ثانوية مشكاة المنار</h1>
+                    <p>رمضان شهر الذكر والغفران</p>
+                </div>
+            </div>
+            <div class="ramadan-badge">
+                <i class="fas fa-star"></i>
+                <span>رمضان 1447</span>
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+
+        <!-- عداد الأيام - يومين ثابت -->
+        <div class="days-counter">
+            <div class="counter-title">
+                <i class="fas fa-hourglass-half"></i>
+                الأيام المتبقية
+                <i class="fas fa-hourglass-half"></i>
+            </div>
+            <div class="big-days">٢</div>
+            <div class="days-label">يوم</div>
+        </div>
+
+        <!-- قسم الأذكار فقط -->
+        <div class="azkar-section">
+            <div class="section-header">
+                <i class="fas fa-praying-hands"></i>
+                <h2>الأذكار المتنوعة</h2>
+            </div>
+
+            <div class="zekr-card">
+                <div class="zekr-text" id="zekrDisplay">
+                    سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ الْعَظِيمِ
+                </div>
+                
+                <div class="counter-controls">
+                    <button class="counter-btn" onclick="decrementZekr()">−</button>
+                    <span class="zekr-counter" id="zekrCount">٠</span>
+                    <button class="counter-btn" onclick="incrementZekr()">+</button>
+                </div>
+
+                <button class="next-zekr-btn" onclick="nextZekr()">
+                    <i class="fas fa-arrow-right"></i>
+                    الذكر التالي
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // الأذكار المتنوعة (20 ذكر مختلف)
+        const azkar = [
+            "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ الْعَظِيمِ",
+            "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ",
+            "أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيَّ الْقَيُّومَ وَأَتُوبُ إِلَيْهِ",
+            "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+            "سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ",
+            "حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ",
+            "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ",
+            "رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ",
+            "اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ",
+            "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+            "اللَّهُمَّ بَارِكْ لَنَا فِي رَمَضَانَ وَأَعِنَّا عَلَى الصِّيَامِ وَالْقِيَامِ",
+            "اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
+            "سُبْحَانَ اللَّهِ عَدَدَ خَلْقِهِ، سُبْحَانَ اللَّهِ رِضَا نَفْسِهِ",
+            "اللَّهُمَّ لَكَ الْحَمْدُ كَمَا يَنْبَغِي لِجَلَالِ وَجْهِكَ وَعَظِيمِ سُلْطَانِكَ",
+            "لَا إِلَهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ",
+            "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+            "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى",
+            "اللَّهُمَّ ثَبِّتْنِي بِالْقَوْلِ الثَّابِتِ فِي الْحَيَاةِ الدُّنْيَا وَفِي الْآخِرَةِ",
+            "اللَّهُمَّ ارْحَمْنِي وَاغْفِرْ لِي وَاهْدِنِي وَارْزُقْنِي",
+            "اللَّهُمَّ اجْعَلْ صِيَامِي فِي رَمَضَانَ صِيَامَ الصَّائِمِينَ"
+        ];
+
+        let zekrIndex = 0;
+        let zekrCounter = 0;
+
+        // عرض أول ذكر
+        document.getElementById('zekrDisplay').textContent = azkar[0];
+        document.getElementById('zekrCount').textContent = '٠';
+
+        function nextZekr() {
+            zekrIndex = (zekrIndex + 1) % azkar.length;
+            document.getElementById('zekrDisplay').textContent = azkar[zekrIndex];
+            resetZekrCounter();
+        }
+
+        function incrementZekr() {
+            zekrCounter++;
+            document.getElementById('zekrCount').textContent = zekrCounter.toString();
+        }
+
+        function decrementZekr() {
+            if (zekrCounter > 0) {
+                zekrCounter--;
+                document.getElementById('zekrCount').textContent = zekrCounter.toString();
+            }
+        }
+
+        function resetZekrCounter() {
+            zekrCounter = 0;
+            document.getElementById('zekrCount').textContent = '٠';
+        }
+    </script>
+</body>
+</html>
